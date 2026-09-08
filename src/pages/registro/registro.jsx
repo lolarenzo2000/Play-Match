@@ -1,7 +1,7 @@
 function Registro(){
     return(
         <>
-        <h>Registro</h>
+        <h1>Registro</h1>
         </>
     )
 }
