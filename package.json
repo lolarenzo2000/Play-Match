@@ -1,6 +1,7 @@
 {
   "name": "play-match",
   "private": true,
+  "homepage": "https://lolarenzo2000.github.io/Play-Match/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
