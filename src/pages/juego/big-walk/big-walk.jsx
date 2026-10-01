@@ -1,7 +1,7 @@
 function BigWalk(){
     return (
         <>
-            <div class='px-[10%] py-2'>
+            <div class='px-16 lg:px-32 py-8 flex flex-col'>
                 
                 <section class='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2'>
                     <img class='w-full h-auto rounded-2xl' src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1478500/62eeee1507dbac905e128a62f2ce690550238db0/header.jpg?t=1785911674" alt="" /> 
