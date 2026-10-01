@@ -10,11 +10,11 @@ function Perfil(){
                 <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
             </div>
 
-            <section className="relative flex min-h-[86px] shrink-0 items-center bg-[#354c64] py-[10px] pl-[160px] pr-[30px] text-slate-50 max-sm:pr-3 max-sm:pl-[116px]" aria-labelledby="profile-name">
-                <div className="absolute -top-6 left-[18px] h-[118px] w-[118px] rounded-full bg-white p-[7px] max-sm:-top-[18px] max-sm:left-3 max-sm:h-[90px] max-sm:w-[90px] max-sm:p-[5px]">
+            <section className="relative flex min-h-[86px] shrink-0 items-center bg-sky-800 py-[10px] pl-[160px] pr-[30px] text-slate-50 max-sm:pr-3 max-sm:pl-[116px]" aria-labelledby="profile-name">
+                <div className="absolute -top-6 left-[18px] h-[118px] w-[118px] rounded-full bg-sky-800 p-[7px] max-sm:-top-[18px] max-sm:left-3 max-sm:h-[90px] max-sm:w-[90px] max-sm:p-[5px]">
                     <img
                         className="block h-full w-full rounded-full object-cover"
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80"
+                        src="https://i.pinimg.com/736x/5a/3f/84/5a3f8406f8c96c6c402d89851376a23b.jpg"
                         alt="Avatar de Usuario"
                     />
                 </div>
@@ -33,17 +33,13 @@ function Perfil(){
 
             <section className="px-8 pb-6 pt-[30px] max-sm:px-4 max-sm:pb-5 max-sm:pt-6" aria-labelledby="favorites-title">
                 <div className="mb-1 flex items-center justify-between">
-                    <h2 className="m-0 text-[13px] font-medium" id="favorites-title">Favoritos <span className="ml-[3px] text-xs" aria-hidden="true">★</span></h2>
+                    <h2 className="m-0 font-xl font-bold" id="favorites-title">Favoritos <span className="ml-[3px] text-xs" aria-hidden="true">★</span></h2>
                     <a className="text-xs text-gray-900 underline underline-offset-2" href="/perfil/favoritos">Ver todos</a>
                 </div>
-                <div className="flex gap-[6px] overflow-x-auto pb-0.5 [scrollbar-color:#cbd5e1_transparent] [scrollbar-width:thin]">
-                    {[1, 2, 3, 4].map((favorite) => (
-                        <div className="h-[100px] w-[160px] shrink-0 rounded-md bg-[#d9d9d9] max-sm:h-[92px] max-sm:w-[145px]" key={favorite} role="img" aria-label={`Juego favorito ${favorite}`} />
-                    ))}
+                <div>
+                    <p>Coming soon...</p>
                 </div>
             </section>
-
-            <div className="min-h-[50px] flex-1 bg-gradient-to-r from-[#354c64] via-[#557ba7] to-[#79a2d2]" aria-hidden="true" />
         </main>
     )
 }
