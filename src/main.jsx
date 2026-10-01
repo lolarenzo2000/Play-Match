@@ -6,6 +6,7 @@ import Menu from './components/menu/menu.jsx'
 import Home from './pages/home/home.jsx'
 import Aleatorio from './pages/aleatorio/aleatorio.jsx'
 import Registro from './pages/registro/registro.jsx'
+import InicioSesion from './pages/inicioSesion/inicioSesion.jsx'
 import Perfil from './pages/perfil/perfil.jsx'
 import BigWalk from './pages/juego/big-walk/big-walk.jsx'
 
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Menu />
     <Routes>
+      <Route path="/inicio-sesion" element={<InicioSesion />} />|
       <Route path="/registro" element={<Registro />} />
       <Route path="/perfil" element={<Perfil />} />
       <Route path="/aleatorio" element={<Aleatorio />} />
