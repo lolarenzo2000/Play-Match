@@ -1,10 +1,13 @@
 function Menu(){
     return(
         <>
-        <nav>
-            <a href="/">Home</a>&nbsp;
-            <a href="/registro">Registro</a>
-        </nav>
+        <div class='bg-sky-250'>
+            <nav>
+                <a href="/">Home</a>&nbsp;
+                <a href="/Aleatorio">Aleatorio</a>
+            </nav>
+        </div>
+        
         </>
     )
 }
