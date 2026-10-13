@@ -11,7 +11,7 @@ import Perfil from './pages/perfil/perfil.jsx'
 import BigWalk from './pages/juego/big-walk/big-walk.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename={import.meta.env.BASE_URL}>
     <Menu />
     <Routes>
       <Route path="/inicio-sesion" element={<InicioSesion />} />|
