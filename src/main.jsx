@@ -21,5 +21,8 @@ createRoot(document.getElementById('root')).render(
       <Route path="/" element={<Home />} />
       <Route path="/juego/big-walk" element={<BigWalk />} />
     </Routes>
+    <footer class='bg-blue-900 text-gray-100 p-2 flex justify-center'>
+      <p>&copy; 2026 Play-Match. All rights reserved.</p>
+    </footer>
   </BrowserRouter>,
 )

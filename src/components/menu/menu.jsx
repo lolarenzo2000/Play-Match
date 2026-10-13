@@ -8,8 +8,8 @@ function Menu(){
                 <a href="/perfil" class='bg-blue-800 p-2 hover:bg-blue-700'>Perfil</a>
             </nav>
             <nav>
-                <a href="/inicio-sesion" class='bg-blue-800 p-2 hover:bg-blue-700'>Inicio Sesión</a>&nbsp;
-                <a href="/registro" class='bg-blue-800 p-2 hover:bg-blue-700'>Registro</a>
+                <a href="/inicio-sesion" class='rounded-full bg-blue-100 text-black font-bold px-4 p-2 hover:bg-blue-700'>Inicio Sesión</a>&nbsp;
+                <a href="/registro" class='rounded-full bg-blue-800 px-4 p-2 hover:bg-blue-700'>Registro</a>
             </nav>
         </div>
         
