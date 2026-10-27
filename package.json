@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "play": "npm run predeploy & npm run deploy"
+    "play": "npm run deploy"
   },
   "dependencies": {
     "react": "^19.2.8",

@@ -1,3 +1,5 @@
+import { Link } from 'react-router'
+
 const recommendations = [
     {
         title: 'Marvel’s Spider-Man 2',
@@ -39,9 +41,9 @@ function GameCarousel({ title, games, moreHref }) {
         <section className="px-10 pt-3 max-sm:px-4" aria-label={title}>
             <div className="mb-1 flex items-center justify-between">
                 <h2 className="m-0 text-[17px] font-normal">{title}</h2>
-                <a className="text-[15px] text-gray-900 underline underline-offset-2" href={moreHref}>
+                <Link className="text-[15px] text-gray-900 underline underline-offset-2" to={moreHref}>
                     ver más
-                </a>
+                </Link>
             </div>
             <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {games.map((game) => (
@@ -77,7 +79,7 @@ function Home(){
                     alt=""
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-black/40" />
-                <a href='/Play-Match/juego/big-walk' className="group relative ml-[12%] aspect-[2.1/1] w-[300px] overflow-hidden rounded-[22px] bg-slate-800 shadow-xl max-sm:ml-5 max-sm:w-[min(78vw,300px)]">
+                <Link to='/juego/big-walk' className="group relative ml-[12%] aspect-[2.1/1] w-[300px] overflow-hidden rounded-[22px] bg-slate-800 shadow-xl max-sm:ml-5 max-sm:w-[min(78vw,300px)]">
                     <img
                         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                         src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1478500/62eeee1507dbac905e128a62f2ce690550238db0/header.jpg?t=1785911674"
@@ -88,7 +90,7 @@ function Home(){
                         <p className="m-0 text-xs font-medium uppercase">Recomendado para ti</p>
                         <h2 className="m-0 text-3xl font-extrabold leading-none">Big Walk</h2>
                     </div>
-                </a>
+                </Link>
             </section>
 
             <GameCarousel title="Otras recomendaciones" games={recommendations} moreHref="/recomendaciones" />
