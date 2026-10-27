@@ -1,3 +1,5 @@
+import { Link } from 'react-router'
+
 function Perfil(){
     return(
         <div class=''>
@@ -37,7 +39,7 @@ function Perfil(){
             <section>
                 <div class='font-xl flex items-center justify-between'>
                     <h2 class='font-bold'>Favoritos ★</h2>
-                    <a class='underline underline-offset-2' href="/perfil/favoritos">Ver todos</a>
+                    <Link className='underline underline-offset-2' to="/perfil/favoritos">Ver todos</Link>
                 </div>
                 <div>
                     <p>Coming soon...</p>

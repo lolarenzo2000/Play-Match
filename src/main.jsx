@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from "react-router";
+import { HashRouter, Routes, Route, Navigate } from "react-router";
 import './index.css'
 import Menu from './components/menu/menu.jsx'
 import Splash from './pages/splash/splash.jsx'
@@ -12,7 +12,7 @@ import Perfil from './pages/perfil/perfil.jsx'
 import BigWalk from './pages/juego/big-walk/big-walk.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename={import.meta.env.BASE_URL}>
+  <HashRouter>
     <Menu />
     <Routes>
       {/* El Splash ahora es la primera pantalla (raíz /) */}
@@ -26,9 +26,12 @@ createRoot(document.getElementById('root')).render(
       <Route path="/perfil" element={<Perfil />} />
       <Route path="/aleatorio" element={<Aleatorio />} />
       <Route path="/juego/big-walk" element={<BigWalk />} />
+
+      {/* Cualquier ruta desconocida vuelve al Home */}
+      <Route path="*" element={<Navigate to="/home" replace />} />
     </Routes>
     <footer className='bg-blue-900 text-gray-100 p-2 flex justify-center'>
       <p>&copy; 2026 Play-Match. All rights reserved.</p>
     </footer>
-  </BrowserRouter>,
+  </HashRouter>,
 )
