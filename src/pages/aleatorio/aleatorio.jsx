@@ -7,26 +7,22 @@ const listaJuegos = [
     {
         title: 'Big Walk',
         path: '/juego/big-walk',
-        image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1478500/62eeee1507dbac905e128a62f2ce690550238db0/header.jpg?t=1785911674',
-        tag: 'Recomendado para ti'
+        image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1478500/62eeee1507dbac905e128a62f2ce690550238db0/header.jpg?t=1785911674'
     },
     {
         title: 'LEGO Batman',
         path: 'https://store.steampowered.com/app/2215200/',
-        image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2215200/a07a9a6c0c9c1225f5b260b4f29fe40e6f099f6b/header.jpg?t=1789746326',
-        tag: 'Acción y Aventura'
+        image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2215200/a07a9a6c0c9c1225f5b260b4f29fe40e6f099f6b/header.jpg?t=1789746326'
     },
     {
         title: 'Marvel’s Spider-Man 2',
         path: 'https://store.steampowered.com/app/2651280/',
-        image: 'https://cdn.akamai.steamstatic.com/steam/apps/2651280/header.jpg',
-        tag: 'Superhéroes'
+        image: 'https://cdn.akamai.steamstatic.com/steam/apps/2651280/header.jpg'
     },
     {
         title: 'Restory',
         path: 'https://store.steampowered.com/app/3812600/',
-        image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3812600/c07daeca18353c666d51462d2e69c30ec68094ad/header_alt_assets_3.jpg?t=1790169325',
-        tag: 'Juego Nuevo'
+        image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3812600/c07daeca18353c666d51462d2e69c30ec68094ad/header_alt_assets_3.jpg?t=1790169325'
     }
 ]
 

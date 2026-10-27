@@ -1,3 +1,42 @@
+import GameCarousel from '../../../components/gameCarousel.jsx'
+const similars = [
+    {
+        title: 'Machine Party',
+        href: 'https://store.steampowered.com/app/4108000/',
+        image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4108000/00ae7d0e0fd0ad72635bddb1dd80ee68cc94eed5/header.jpg?t=1786561627',
+    },
+    {
+        title: 'PEAK',
+        href: 'https://store.steampowered.com/app/3527290/PEAK/',
+        image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3527290/31bac6b2eccf09b368f5e95ce510bae2baf3cfcd/header.jpg?t=1792684718',
+    },
+    {
+        title: 'Grain Rot',
+        href: 'https://store.steampowered.com/app/4450620/',
+        image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4450620/697974067797577ee1803c37a44b4217d886502a/header.jpg?t=1786114521',
+    },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    }
+]
+
 function BigWalk(){
     return (
         <>
@@ -15,16 +54,7 @@ function BigWalk(){
                     </div>
                     <div class='text-3xl lg:text-lg py-4'>Seciones Largas • Cooperativo • Puzzle • Mundo Abierto • Exploracion</div>
                 </section>
-                
-                <section class='py-1'>
-                    <h1 class='text-4xl font-bold lg:text-xl'>screenshots</h1>
-                    <p>Coming soon...</p>
-                </section>
-
-                <section class=''>
-                    <h1 class='text-4xl font-bold lg:text-xl'>Similares</h1>
-                    <p>Coming soon...</p>
-                </section>
+                <GameCarousel title="Similares" games={similars}/>
                 
             </div>
         </>

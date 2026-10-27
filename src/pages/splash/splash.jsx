@@ -4,7 +4,7 @@ function Splash(){
     const navigate = useNavigate();
 
     return(
-        <>
+        < >
             <section>
                 <div className="bg-blue-800 h-16" />
                 <div className="p-16 bg-blue-950 text-center">
@@ -36,6 +36,8 @@ function Splash(){
                     </div>
                 </div>
             </section>
+
+            <div className=''></div>
         </>
     )
 }

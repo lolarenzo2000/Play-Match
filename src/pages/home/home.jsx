@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import GameCarousel from '../../components/gameCarousel.jsx'
 
 const recommendations = [
     {
@@ -16,6 +17,26 @@ const recommendations = [
         href: 'https://store.steampowered.com/app/4450620/',
         image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4450620/697974067797577ee1803c37a44b4217d886502a/header.jpg?t=1786114521',
     },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    }
 ]
 
 const newGames = [
@@ -34,36 +55,22 @@ const newGames = [
         href: 'https://store.steampowered.com/app/2950790/',
         image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2950790/e6c9e990560078611472e5dab98e79a405ed33f4/header.jpg?t=1789499918',
     },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    },
+    {
+        title:'Null',
+        href: '' ,
+        image: '',
+    },
 ]
-
-function GameCarousel({ title, games, moreHref }) {
-    return (
-        <section className="px-10 pt-3 max-sm:px-4" aria-label={title}>
-            <div className="mb-1 flex items-center justify-between">
-                <h2 className="m-0 text-[17px] font-normal">{title}</h2>
-                <Link className="text-[15px] text-gray-900 underline underline-offset-2" to={moreHref}>
-                    ver más
-                </Link>
-            </div>
-            <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                {games.map((game) => (
-                    <a className="group relative aspect-[2.15/1] w-[310px] shrink-0 overflow-hidden rounded-lg bg-slate-800 text-left no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 max-sm:w-[260px]" href={game.href} key={game.title} rel="noreferrer" target="_blank">
-                        <img
-                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                            src={game.image}
-                            alt=""
-                            loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                        <h3 className="absolute bottom-0 left-0 m-0 p-3 text-sm font-semibold text-white">
-                            {game.title}
-                        </h3>
-                    </a>
-                ))}
-            </div>
-        </section>
-    )
-}
 
 function Home(){
     return (
@@ -93,8 +100,11 @@ function Home(){
                 </Link>
             </section>
 
-            <GameCarousel title="Otras recomendaciones" games={recommendations} moreHref="/recomendaciones" />
-            <GameCarousel title="Juegos nuevos" games={newGames} moreHref="/juegos-nuevos" />
+            <div className="gap-6 px-16"> 
+                <GameCarousel title="Otras recomendaciones" games={recommendations} moreHref="/recomendaciones" />
+                <GameCarousel title="Juegos nuevos" games={newGames} moreHref="/juegos-nuevos" />
+            </div>
+            
         </main>
     );
 }
