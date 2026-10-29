@@ -49,18 +49,37 @@ function GameCarousel({ title, games, moreHref }) {
                 <div ref={carouselRef} className="flex w-full min-w-0 gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     {games.map((game, index) => (
                         game.title && game.href && game.image ? (
-                            <a className="group relative aspect-[2.15/1] w-[310px] shrink-0 overflow-hidden rounded-lg bg-slate-800 text-left no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 max-sm:w-[260px]" href={game.href} key={`${game.title}-${index}`} rel="noreferrer" target="_blank">
-                                <img
-                                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                    src={game.image}
-                                    alt=""
-                                    loading="lazy"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                                <h3 className="absolute bottom-0 left-0 m-0 p-3 text-sm font-semibold text-white">
-                                    {game.title}
-                                </h3>
-                            </a>
+                            game.href.startsWith('/') ? (
+                                <Link
+                                    className="group relative aspect-[2.15/1] w-[310px] shrink-0 overflow-hidden rounded-lg bg-slate-800 text-left no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 max-sm:w-[260px]"
+                                    to={game.href}
+                                    key={`${game.title}-${index}`}
+                                >
+                                    <img
+                                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                        src={game.image}
+                                        alt=""
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                                    <h3 className="absolute bottom-0 left-0 m-0 p-3 text-sm font-semibold text-white">
+                                        {game.title}
+                                    </h3>
+                                </Link>
+                            ) : (
+                                <a className="group relative aspect-[2.15/1] w-[310px] shrink-0 overflow-hidden rounded-lg bg-slate-800 text-left no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 max-sm:w-[260px]" href={game.href} key={`${game.title}-${index}`} rel="noreferrer" target="_blank">
+                                    <img
+                                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                        src={game.image}
+                                        alt=""
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                                    <h3 className="absolute bottom-0 left-0 m-0 p-3 text-sm font-semibold text-white">
+                                        {game.title}
+                                    </h3>
+                                </a>
+                            )
                         ) : (
                             <div key={`placeholder-${index}`} className="aspect-[2.15/1] w-[310px] shrink-0 rounded-lg bg-slate-800 max-sm:w-[260px]" aria-hidden="true" />
                         )

@@ -39,7 +39,7 @@ function Encuesta() {
     }
 
     return (
-        <div className='relative isolate flex min-h-[calc(100vh-40px)] items-center justify-center bg-[url("https://i.pinimg.com/736x/fd/26/d9/fd26d963a0d04d3705138da243dacb9a.jpg")] bg-[length:736px_auto] bg-repeat p-4'>
+        <div className='relative isolate flex min-h-0 items-center justify-center bg-[url("https://i.pinimg.com/736x/fd/26/d9/fd26d963a0d04d3705138da243dacb9a.jpg")] bg-[length:736px_auto] bg-repeat p-4'>
             {/* Capa con gradiente oscuro como en la imagen */}
             <div className='absolute inset-0 bg-gradient-to-br from-black/80 via-slate-950/65 to-black/85' aria-hidden='true' />
 
