@@ -10,8 +10,10 @@ import Registro from './pages/registro/registro.jsx'
 import InicioSesion from './pages/inicioSesion/inicioSesion.jsx'
 import Perfil from './pages/perfil/perfil.jsx'
 import BigWalk from './pages/juego/big-walk/big-walk.jsx'
+import Encuesta from './pages/encuesta/encuesta.jsx'
 
 createRoot(document.getElementById('root')).render(
+<<<<<<< Updated upstream
   <BrowserRouter basename={import.meta.env.BASE_URL}>
     <Menu />
     <Routes>
@@ -31,4 +33,33 @@ createRoot(document.getElementById('root')).render(
       <p>&copy; 2026 Play-Match. All rights reserved.</p>
     </footer>
   </BrowserRouter>,
+=======
+  <HashRouter>
+    <div className="flex min-h-screen min-w-0 flex-col">
+      <Menu />
+      <div className="grid min-w-0 flex-1 grid-rows-[1fr]">
+        <Routes>
+          {/* El Splash es la pantalla inicial (raíz /) */}
+          <Route path="/" element={<Splash />} />
+
+          {/* El Home se ubica en /home */}
+          <Route path="/home" element={<Home />} />
+
+          <Route path="/inicio-sesion" element={<InicioSesion />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/encuesta" element={<Encuesta />} />
+          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/aleatorio" element={<Aleatorio />} />
+          <Route path="/juego/big-walk" element={<BigWalk />} />
+
+          {/* Cualquier ruta desconocida vuelve al Splash */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+      <footer className='flex justify-center bg-blue-900 p-2 text-gray-100'>
+        <p>&copy; 2026 Play-Match. All rights reserved.</p>
+      </footer>
+    </div>
+  </HashRouter>,
+>>>>>>> Stashed changes
 )
