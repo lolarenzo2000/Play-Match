@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from "react-router";
+import { HashRouter, Routes, Route, Navigate } from "react-router";
 import './index.css'
 import Menu from './components/menu/menu.jsx'
 import Splash from './pages/splash/splash.jsx'
@@ -13,36 +13,15 @@ import BigWalk from './pages/juego/big-walk/big-walk.jsx'
 import Encuesta from './pages/encuesta/encuesta.jsx'
 
 createRoot(document.getElementById('root')).render(
-<<<<<<< Updated upstream
-  <BrowserRouter basename={import.meta.env.BASE_URL}>
-    <Menu />
-    <Routes>
-      {/* El Splash ahora es la primera pantalla (raíz /) */}
-      <Route path="/" element={<Splash />} />
-      
-      {/* El Home se mueve a /home */}
-      <Route path="/home" element={<Home />} />
-      
-      <Route path="/inicio-sesion" element={<InicioSesion />} />
-      <Route path="/registro" element={<Registro />} />
-      <Route path="/perfil" element={<Perfil />} />
-      <Route path="/aleatorio" element={<Aleatorio />} />
-      <Route path="/juego/big-walk" element={<BigWalk />} />
-    </Routes>
-    <footer className='bg-blue-900 text-gray-100 p-2 flex justify-center'>
-      <p>&copy; 2026 Play-Match. All rights reserved.</p>
-    </footer>
-  </BrowserRouter>,
-=======
   <HashRouter>
     <div className="flex min-h-screen min-w-0 flex-col">
       <Menu />
       <div className="grid min-w-0 flex-1 grid-rows-[1fr]">
         <Routes>
-          {/* El Splash es la pantalla inicial (raíz /) */}
+          {/* El Splash ahora es la primera pantalla (raíz /) */}
           <Route path="/" element={<Splash />} />
 
-          {/* El Home se ubica en /home */}
+          {/* El Home se mueve a /home */}
           <Route path="/home" element={<Home />} />
 
           <Route path="/inicio-sesion" element={<InicioSesion />} />
@@ -52,8 +31,8 @@ createRoot(document.getElementById('root')).render(
           <Route path="/aleatorio" element={<Aleatorio />} />
           <Route path="/juego/big-walk" element={<BigWalk />} />
 
-          {/* Cualquier ruta desconocida vuelve al Splash */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* Cualquier ruta desconocida vuelve al Home */}
+          <Route path="*" element={<Navigate to="/home" replace />} />
         </Routes>
       </div>
       <footer className='flex justify-center bg-blue-900 p-2 text-gray-100'>
@@ -61,5 +40,4 @@ createRoot(document.getElementById('root')).render(
       </footer>
     </div>
   </HashRouter>,
->>>>>>> Stashed changes
 )
