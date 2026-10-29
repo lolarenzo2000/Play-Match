@@ -54,10 +54,10 @@ function Aleatorio() {
         <>
             {/* Capa de transición clara al salir */}
             {cargando && (
-                <div className="fixed inset-0 bg-white/70 z-50 transition-opacity duration-300 pointer-events-none" />
+                <div className="fixed inset-0 z-50 bg-slate-950/70 transition-opacity duration-300 pointer-events-none" />
             )}
 
-            <div className="flex flex-col min-h-[calc(100vh-40px)] items-center justify-center gap-6 p-6">
+            <div className="flex flex-col items-center justify-center gap-6 p-6">
                 
                 {/* Espacio superior para mostrar el juego elegido (o un cuadro sutil si aún no se elige ninguno) */}
                 <div className="h-[180px] flex items-center justify-center w-full">
@@ -78,14 +78,14 @@ function Aleatorio() {
                             </div>
                         </button>
                     ) : (
-                        <div className="w-[300px] aspect-[2.1/1] rounded-[22px] border-2 border-dashed border-gray-300 flex items-center justify-center bg-gray-50/50">
-                            <span className="text-gray-400 text-xs font-medium">¿Cuál te tocará?</span>
+                        <div className="flex aspect-[2.1/1] w-[300px] items-center justify-center rounded-[22px] border-2 border-dashed border-slate-600 bg-slate-800/50">
+                            <span className="text-xs font-medium text-slate-400">¿Cuál te tocará?</span>
                         </div>
                     )}
                 </div>
 
                 {/* Descripción fija entre el juego y el botón */}
-                <p className="text-gray-500 font-medium text-sm text-center">
+                <p className="text-center text-sm font-medium text-slate-300">
                     Presiona el botón de abajo para descubrir un juego aleatorio
                 </p>
 

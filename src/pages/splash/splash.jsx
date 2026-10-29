@@ -4,7 +4,7 @@ function Splash(){
     const navigate = useNavigate();
 
     return(
-        < >
+        <div className="flex flex-col">
             <section>
                 <div className="bg-blue-800 h-16" />
                 <div className="p-16 bg-blue-950 text-center">
@@ -19,8 +19,8 @@ function Splash(){
                 <div className="bg-blue-800 h-16" />
             </section>
             
-            <section className="p-16 bg-white">
-                <h1 className="font-bold text-3xl mb-6 text-center">Cómo funciona</h1>
+            <section className="bg-[#0b1120] p-16">
+                <h1 className="mb-6 text-center text-3xl font-bold text-slate-100">Cómo funciona</h1>
                 <div className='flex justify-center gap-4 flex-wrap'>
                     <div className="w-64 p-4 m-2 bg-blue-500 text-white rounded-lg shadow-md">
                         <h1 className="text-2xl font-bold">Paso 1</h1>
@@ -38,7 +38,7 @@ function Splash(){
             </section>
 
             <div className=''></div>
-        </>
+        </div>
     )
 }
 

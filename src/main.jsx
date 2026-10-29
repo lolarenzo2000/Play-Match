@@ -13,25 +13,29 @@ import BigWalk from './pages/juego/big-walk/big-walk.jsx'
 
 createRoot(document.getElementById('root')).render(
   <HashRouter>
-    <Menu />
-    <Routes>
-      {/* El Splash ahora es la primera pantalla (raíz /) */}
-      <Route path="/" element={<Splash />} />
-      
-      {/* El Home se mueve a /home */}
-      <Route path="/home" element={<Home />} />
-      
-      <Route path="/inicio-sesion" element={<InicioSesion />} />
-      <Route path="/registro" element={<Registro />} />
-      <Route path="/perfil" element={<Perfil />} />
-      <Route path="/aleatorio" element={<Aleatorio />} />
-      <Route path="/juego/big-walk" element={<BigWalk />} />
+    <div className="flex min-h-screen min-w-0 flex-col">
+      <Menu />
+      <div className="grid min-w-0 flex-1 grid-rows-[1fr]">
+        <Routes>
+          {/* El Splash ahora es la primera pantalla (raíz /) */}
+          <Route path="/" element={<Splash />} />
 
-      {/* Cualquier ruta desconocida vuelve al Home */}
-      <Route path="*" element={<Navigate to="/home" replace />} />
-    </Routes>
-    <footer className='bg-blue-900 text-gray-100 p-2 flex justify-center'>
-      <p>&copy; 2026 Play-Match. All rights reserved.</p>
-    </footer>
+          {/* El Home se mueve a /home */}
+          <Route path="/home" element={<Home />} />
+
+          <Route path="/inicio-sesion" element={<InicioSesion />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/aleatorio" element={<Aleatorio />} />
+          <Route path="/juego/big-walk" element={<BigWalk />} />
+
+          {/* Cualquier ruta desconocida vuelve al Home */}
+          <Route path="*" element={<Navigate to="/home" replace />} />
+        </Routes>
+      </div>
+      <footer className='flex justify-center bg-blue-900 p-2 text-gray-100'>
+        <p>&copy; 2026 Play-Match. All rights reserved.</p>
+      </footer>
+    </div>
   </HashRouter>,
 )

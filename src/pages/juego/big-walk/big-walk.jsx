@@ -40,7 +40,7 @@ const similars = [
 function BigWalk(){
     return (
         <>
-            <div class='min-h-screen px-16 lg:px-64 py-8 flex flex-col '>
+            <div class='min-w-0 px-4 py-8 flex flex-col sm:px-8 lg:px-64'>
                 
                 <section class='grid grid-cols-1 lg:grid-cols-2'>
                     <img class='w-full h-auto rounded-2xl lg:w-auto' src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1478500/62eeee1507dbac905e128a62f2ce690550238db0/header.jpg?t=1785911674" alt="" /> 

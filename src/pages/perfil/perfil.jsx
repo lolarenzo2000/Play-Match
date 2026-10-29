@@ -41,41 +41,39 @@ const favourites = [
 
 function Perfil(){
     return(
-        <div class='h-screen'>
-            <div class='relative h-[200px] shrink-0 overflow-hidden bg-[#07121b]' role="img" aria-label="La Tierra vista desde el espacio">
+        <div className='flex w-full min-w-0 flex-col overflow-x-clip'>
+            <div className='relative h-[200px] w-full shrink-0 overflow-hidden bg-[#07121b]' role="img" aria-label="La Tierra vista desde el espacio">
                 <img
-                    class='absolute inset-0 h-full w-full object-cover object-[center_48%]'
+                    className='absolute inset-0 h-full w-full object-cover object-[center_48%]'
                     src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1800&q=85"
                     alt=""
                 />
-                <div class='absolute inset-0 bg-gradient-to-r from-black/30 to-transparent' />
+                <div className='absolute inset-0 bg-gradient-to-r from-black/30 to-transparent' />
             </div>
 
-            <section class='bg-sky-800 h-auto p-4 text-white flex justify-between'>
-                <div class='flex items-center gap-4'>
-                    <div class='rounded-full outline outline-8 outline-sky-800 center flex-initial'>                    
+            <section className='flex h-auto min-w-0 flex-col gap-4 bg-sky-800 p-4 text-white sm:flex-row sm:items-center sm:justify-between'>
+                <div className='flex min-w-0 items-center gap-4'>
+                    <div className='shrink-0 rounded-full outline outline-8 outline-sky-800'>
                         <img
-                            class='block h-[138px] w-[138px] overflow-hidden rounded-full object-cover'
+                            className='block h-[138px] w-[138px] overflow-hidden rounded-full object-cover'
                             src="https://i.pinimg.com/736x/5a/3f/84/5a3f8406f8c96c6c402d89851376a23b.jpg"
                             alt="Avatar de Usuario"
                         />                
                     </div>
-                    <div>
-                        <h1 class='font-bold text-2xl'>Usuario</h1>
+                    <div className='min-w-0'>
+                        <h1 className='text-2xl font-bold'>Usuario</h1>
                         <p>Rol estratégico · cooperativo · sesiones largas · PC</p>
                         <p>Creado: 4/08/2026</p>
                     </div>
                 </div>
                 
-                
-
-                <div class=''>
-                    <button class='text-2xl' >✎</button>
-                    <button class='text-2xl' >↗</button>
+                <div className='flex shrink-0 gap-2 self-end sm:self-auto'>
+                    <button className='text-2xl' type='button' aria-label='Editar perfil'>✎</button>
+                    <button className='text-2xl' type='button' aria-label='Compartir perfil'>↗</button>
                 </div>
             </section>
 
-            <section class='px-6'>
+            <section className='w-full min-w-0 px-2 sm:px-6'>
                 <GameCarousel title="Favoritos ★" games={favourites} moreHref="/perfil/favoritos" />
             </section>
         </div>
