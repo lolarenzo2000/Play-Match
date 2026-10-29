@@ -10,6 +10,7 @@ import Registro from './pages/registro/registro.jsx'
 import InicioSesion from './pages/inicioSesion/inicioSesion.jsx'
 import Perfil from './pages/perfil/perfil.jsx'
 import BigWalk from './pages/juego/big-walk/big-walk.jsx'
+import Encuesta from './pages/encuesta/encuesta.jsx'
 
 createRoot(document.getElementById('root')).render(
   <HashRouter>
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')).render(
 
           <Route path="/inicio-sesion" element={<InicioSesion />} />
           <Route path="/registro" element={<Registro />} />
+          <Route path="/encuesta" element={<Encuesta />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/aleatorio" element={<Aleatorio />} />
           <Route path="/juego/big-walk" element={<BigWalk />} />

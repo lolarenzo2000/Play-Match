@@ -1,9 +1,8 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router'
 import './aleatorio.css'
 
-// Lista con los 4 juegos para el modo aleatorio
-const listaJuegos = [
+const listaJuegosBase = [
     {
         title: 'Big Walk',
         path: '/juego/big-walk',
@@ -27,80 +26,101 @@ const listaJuegos = [
 ]
 
 function Aleatorio() {
-    const [juegoSeleccionado, setJuegoSeleccionado] = useState(null)
-    const [cargando, setCargando] = useState(false)
     const navigate = useNavigate()
+    const [cargando, setCargando] = useState(false)
+    const [juegosActuales, setJuegosActuales] = useState([]) // Inicia vacío para que no salgan al cargar
+    const scrollRef = useRef(null)
 
-    // Función para elegir un juego al azar al hacer clic en el botón rojo
-    const elegirAleatorio = () => {
-        const indiceAleatorio = Math.floor(Math.random() * listaJuegos.length)
-        setJuegoSeleccionado(listaJuegos[indiceAleatorio])
+    // Al hacer clic, hace el fade y muestra los juegos aleatorios
+    const handleBuscarAleatorio = () => {
+        setCargando(true)
+
+        setTimeout(() => {
+            const juegosMezclados = [...listaJuegosBase].sort(() => Math.random() - 0.5)
+            setJuegosActuales(juegosMezclados)
+            setCargando(false)
+        }, 300)
     }
 
-    // Maneja la transición visual y la redirección (interna o externa a Steam)
-    const handleIrAJuego = (path) => {
-        setCargando(true)
-        setTimeout(() => {
-            if (path.startsWith('http')) {
-                window.open(path, '_blank')
-                setCargando(false)
-            } else {
-                navigate(path)
-            }
-        }, 500)
+    const handleCardClick = (path) => {
+        if (path.startsWith('http')) {
+            window.open(path, '_blank')
+        } else {
+            navigate(path)
+        }
+    }
+
+    // Permite mover el carrusel horizontalmente con la rueda del ratón
+    const handleWheel = (e) => {
+        if (scrollRef.current) {
+            e.preventDefault()
+            scrollRef.current.scrollLeft += e.deltaY
+        }
     }
 
     return (
-        <>
-            {/* Capa de transición clara al salir */}
-            {cargando && (
-                <div className="fixed inset-0 z-50 bg-slate-950/70 transition-opacity duration-300 pointer-events-none" />
-            )}
+        <div className="relative isolate flex flex-col min-h-[calc(100vh-40px)] bg-[url('https://i.pinimg.com/736x/fd/26/d9/fd26d963a0d04d3705138da243dacb9a.jpg')] bg-[length:736px_auto] bg-repeat p-6 md:p-10 justify-center overflow-hidden">
+            
+            {/* Fondo y capa de fundido */}
+            <div className='absolute inset-0 bg-gradient-to-br from-black/80 via-slate-950/65 to-black/85 -z-10' aria-hidden='true' />
+            <div className={`absolute inset-0 bg-slate-950 z-30 transition-opacity duration-300 pointer-events-none ${cargando ? 'opacity-100' : 'opacity-0'}`} />
 
-            <div className="flex flex-col items-center justify-center gap-6 p-6">
-                
-                {/* Espacio superior para mostrar el juego elegido (o un cuadro sutil si aún no se elige ninguno) */}
-                <div className="h-[180px] flex items-center justify-center w-full">
-                    {juegoSeleccionado ? (
-                        <button
-                            onClick={() => handleIrAJuego(juegoSeleccionado.path)}
-                            className="group relative aspect-[2.1/1] w-[300px] overflow-hidden rounded-[22px] bg-slate-800 text-left shadow-xl transition-transform active:scale-95 cursor-pointer"
-                        >
-                            <img
-                                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                src={juegoSeleccionado.image}
-                                alt={juegoSeleccionado.title}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                            <div className="absolute bottom-0 left-0 p-4 text-white">
-                                <p className="m-0 text-xs font-medium uppercase">{juegoSeleccionado.tag}</p>
-                                <h2 className="m-0 text-3xl font-extrabold leading-none">{juegoSeleccionado.title}</h2>
-                            </div>
-                        </button>
-                    ) : (
-                        <div className="flex aspect-[2.1/1] w-[300px] items-center justify-center rounded-[22px] border-2 border-dashed border-slate-600 bg-slate-800/50">
-                            <span className="text-xs font-medium text-slate-400">¿Cuál te tocará?</span>
-                        </div>
-                    )}
+            {/* Encabezado, frase y botón */}
+            <div className="relative z-10 mb-8 max-w-5xl mx-auto w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h1 className="text-3xl md:text-4xl font-extrabold mb-2 text-white">
+                        Hola Usuario, hoy te recomendamos:
+                    </h1>
+                    <p className="text-gray-300 text-lg italic">
+                        "Según nuestras investigaciones, esto te puede gustar..."
+                    </p>
                 </div>
+                <button
+                    onClick={handleBuscarAleatorio}
+                    className="self-start md:self-auto rounded-full px-8 py-4 bg-red-600 text-white font-bold text-base outline outline-4 outline-red-500 hover:bg-red-700 shadow-lg cursor-pointer transition-transform active:scale-95"
+                >
+                    Buscar juego aleatorio
+                </button>
+            </div>
 
-                {/* Descripción fija entre el juego y el botón */}
-                <p className="text-center text-sm font-medium text-slate-300">
-                    Presiona el botón de abajo para descubrir un juego aleatorio
-                </p>
-
-                {/* Botón rojo central */}
-                <div className="flex items-center justify-center">
-                    <button 
-                        onClick={elegirAleatorio}
-                        className="rounded-full px-8 py-4 bg-red-600 text-white font-bold text-lg outline outline-5 outline-red-500 hover:bg-red-700 focus:bg-red-700 shadow-lg cursor-pointer transition-transform active:scale-95"
+            {/* Área del carrusel o estado inicial */}
+            <div className="relative z-10 w-full max-w-5xl mx-auto">
+                {juegosActuales.length > 0 ? (
+                    <div 
+                        ref={scrollRef}
+                        onWheel={handleWheel}
+                        className="flex overflow-x-auto gap-6 pb-6 pt-2 scroll-smooth snap-x snap-mandatory"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
-                        Juego Aleatorio
-                    </button>    
-                </div>
+                        {juegosActuales.map((juego, index) => (
+                            <div
+                                key={index}
+                                onClick={() => handleCardClick(juego.path)}
+                                className="flex-shrink-0 snap-start group relative aspect-[2.1/1] w-[300px] md:w-[360px] overflow-hidden rounded-[22px] bg-slate-800 shadow-xl transition-transform duration-300 hover:scale-105 cursor-pointer"
+                            >
+                                <img
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    src={juego.image}
+                                    alt={juego.title}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                <div className="absolute bottom-0 left-0 p-5 text-white">
+                                    <span className="inline-block px-2.5 py-1 mb-2 text-xs font-semibold uppercase tracking-wider bg-blue-600/85 rounded-full">
+                                        {juego.tag}
+                                    </span>
+                                    <h2 className="text-2xl font-extrabold leading-tight">{juego.title}</h2>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="w-full h-[180px] rounded-[22px] border-2 border-dashed border-gray-500/50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm">
+                        <span className="text-gray-400 text-sm font-medium">Presiona el botón "Buscar juego aleatorio" para revelar las recomendaciones...</span>
+                    </div>
+                )}
+            </div>
 
-            </div>          
-        </>
+        </div>
     )
 }
 
